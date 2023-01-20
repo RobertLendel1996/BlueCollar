@@ -5578,7 +5578,9 @@ PERFORMANCE OF THIS SOFTWARE.
     }
     const da = new DynamicAdapt("max");
     da.init();
-    window.onload = function() {
+    window.addEventListener("load", documentActions);
+    function documentActions() {
+        document.documentElement.classList.add("loaded");
         const furniture = document.querySelector(".gallery__content");
         if (furniture && !isMobile.any()) {
             const furnitureItems = document.querySelector(".gallery__items");
@@ -5633,7 +5635,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 animOnScroll();
             }), 300);
         }
-    };
+    }
     window["FLS"] = true;
     isWebp();
     menuInit();
